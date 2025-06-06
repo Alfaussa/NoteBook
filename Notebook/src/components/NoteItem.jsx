@@ -1,8 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-const NoteItem = () => {
+const NoteItem = ({note, editNote}) => {
+
+
   return (
-    <div>NoteItem</div>
+    <div className='note-item'>
+    <div onClick={()=>editNote(note.id)}>{note.text}</div>
+    </div>
   )
 }
 
