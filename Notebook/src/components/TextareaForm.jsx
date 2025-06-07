@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const TextareaForm = ({addNote}) => {
+const TextareaForm = ({addNote, note}) => {
 
 const [userInput, setUserInput] = useState('');
 
@@ -12,6 +12,7 @@ const [userInput, setUserInput] = useState('');
     addNote(userInput);
     setUserInput('');
   }
+  
 
   return (
 <form className='note-form'onSubmit={handleClick}>

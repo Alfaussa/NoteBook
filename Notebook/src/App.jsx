@@ -19,8 +19,10 @@ function App() {
       setNotes([...notes, newNote])
     }
   }
-  const editNote = (id) => {
-    setNotes([...notes.map((note) => ((id === note.id)?{...note, isEditing:!note.isEditing}:note))])
+  const editNote = (id,note) => {
+   setNotes([...notes.map((note) => ((id === note.id) ? setUserInput(note.text) :note
+   ))
+   ])
   }
   return (
     <>
@@ -28,10 +30,18 @@ function App() {
     <NoteItem
     note={note}
     key={note.id}
-    text={note.text}/>)   }
-     <TextareaForm
+    text={note.text}
+    editNote={editNote}/>)   }
+    
+    
+    <TextareaForm
+    
      addNote={addNote}
-     editNote={editNote}/>
+     
+     />
+  
+  
+   
    
  
    
