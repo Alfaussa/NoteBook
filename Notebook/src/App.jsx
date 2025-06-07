@@ -20,9 +20,9 @@ function App() {
     }
   }
   const editNote = (id,note) => {
-   setNotes([...notes.map((note) => ((id === note.id) ? setUserInput(note.text) :note
-   ))
-   ])
+    setNotes([...notes.map((note) => ((id === note.id)?{...note, isEditing:!note.isEditing}:note))])
+  
+    
   }
   return (
     <>
