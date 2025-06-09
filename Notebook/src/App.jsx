@@ -16,7 +16,6 @@ function App() {
       const newNote ={
         id: nanoid(),
         text: userInput,
-        isEditing: false,
       }
       setNotes([...notes, newNote])
     }
@@ -29,7 +28,9 @@ function App() {
     setNotes([...notes.map((note) => 
     (id === note.id)?{...note, text}:note)])
   }
-
+  const deleteNote = (id) => {
+    setNotes([...notes.filter((note) => (id !== note.id))])
+  }
   return (
     <>
     {notes.map((note)=>
@@ -37,17 +38,18 @@ function App() {
     note={note}
     key={note.id}
     text={note.text}
-    editNote={editNote}/>)   }
+    editNote={editNote}
+    deleteNote={deleteNote}/>)   }
     
     
-    <TextareaForm
+<div className='items-container'><TextareaForm
     userInput={userInput}
     setUserInput={setUserInput}
     addNote={addNote}
     saveEditedNote={saveEditedNote}
     selectedNote={selectedNote}
      
-     />
+     /></div>
   
   
    
