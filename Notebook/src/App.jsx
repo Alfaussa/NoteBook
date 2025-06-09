@@ -8,6 +8,7 @@ import './App.css'
 function App() {
   
   const [notes, setNotes] = useState([]);
+  const [userInput, setUserInput] = useState('');
 
   const addNote = (userInput) => {
     if(userInput){
@@ -20,7 +21,8 @@ function App() {
     }
   }
   const editNote = (id,note) => {
-    setNotes([...notes.map((note) => ((id === note.id)?{...note, isEditing:!note.isEditing}:note))])
+    setUserInput([...notes.map((note) => ((id === note.id)?{...note, isEditing:!note.isEditing}:note))])
+
   
     
   }
@@ -35,8 +37,9 @@ function App() {
     
     
     <TextareaForm
-    
-     addNote={addNote}
+    userInput={userInput}
+    setUserInput={setUserInput}
+    addNote={addNote}
      
      />
   

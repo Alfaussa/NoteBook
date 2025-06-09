@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 
-const TextareaForm = ({addNote, note}) => {
+const TextareaForm = ({addNote, userInput, setUserInput}) => {
 
-const [userInput, setUserInput] = useState('');
+
 
   const handleChange = (event) => {
     setUserInput(event.target.value)
