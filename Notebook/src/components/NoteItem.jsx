@@ -5,7 +5,7 @@ const NoteItem = ({note, editNote}) => {
 
   return (
     <div className='note-item'>
-    <div onClick={()=>editNote(note.id)}>{note.text}</div>
+    <div onClick={()=>editNote(note)}>{note.text}</div>
     </div>
   )
 }

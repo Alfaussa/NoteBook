@@ -9,6 +9,7 @@ function App() {
   
   const [notes, setNotes] = useState([]);
   const [userInput, setUserInput] = useState('');
+  const [selectedNote, setSelectedNote]= useState();
 
   const addNote = (userInput) => {
     if(userInput){
@@ -20,12 +21,15 @@ function App() {
       setNotes([...notes, newNote])
     }
   }
-  const editNote = (id,note) => {
-    setUserInput([...notes.map((note) => ((id === note.id)?{...note, isEditing:!note.isEditing}:note))])
-
-  
-    
+  const editNote = (note) => {
+  setSelectedNote(note)
+  setUserInput(note.text)
   }
+  const saveEditedNote = (id) => {
+    setNotes([...notes.map((note) => 
+    (id === note.id)?{...note, text}:note)])
+  }
+
   return (
     <>
     {notes.map((note)=>
@@ -40,6 +44,8 @@ function App() {
     userInput={userInput}
     setUserInput={setUserInput}
     addNote={addNote}
+    saveEditedNote={saveEditedNote}
+    selectedNote={selectedNote}
      
      />
   
