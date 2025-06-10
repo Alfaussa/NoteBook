@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { nanoid } from 'nanoid'
 import  TextareaForm  from './components/TextareaForm'
 import NoteItem from './components/NoteItem'
+import SearchBar from './components/SearchBar'
 
 import './App.css'
 
@@ -10,7 +11,18 @@ function App() {
   const [notes, setNotes] = useState([]);
   const [userInput, setUserInput] = useState('');
   const [selectedNote, setSelectedNote]= useState();
+  const [query, setQuery] = useState("");
 
+let filteredNotes =[];
+
+if(query !== ""){
+    filteredNotes = notes.filter((note) => 
+    note.text.toLowerCase().includes(query.toLowerCase()))
+    
+} else {
+    filteredNotes = notes;
+ 
+}
   const addNote = (userInput) => {
     if(userInput){
       const newNote ={
@@ -31,9 +43,17 @@ function App() {
   const deleteNote = (id) => {
     setNotes([...notes.filter((note) => (id !== note.id))])
   }
+
   return (
     <>
-    {notes.map((note)=>
+    <SearchBar
+    notes={notes}
+    query={query}
+    setQuery={setQuery}
+ />
+  
+    
+    {filteredNotes.map((note)=>
     <NoteItem
     note={note}
     key={note.id}

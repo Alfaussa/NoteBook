@@ -1,15 +1,15 @@
 import React, {useState} from 'react'
 
-const TextareaForm = ({addNote, userInput, setUserInput, saveEditedNote}) => {
+const TextareaForm = ({addNote, userInput, setUserInput, selectedNote, saveEditedNote}) => {
 
 
 
   const handleChange = (event) => {
     setUserInput(event.target.value)
   }
-  const handleClick = (event, selectedNote) => {
+  const handleClick = (event, ) => {
     event.preventDefault();
-    (!selectedNote)?addNote(userInput):saveEditedNote(selectedNote)
+    (!selectedNote)?addNote(userInput):saveEditedNote(note)
     setUserInput('');
   }
   
