@@ -10,7 +10,7 @@ function App() {
   
   const [notes, setNotes] = useState([]);
   const [userInput, setUserInput] = useState('');
-  const [selectedNote, setSelectedNote]= useState();
+  const [selectedNote, setSelectedNote]= useState('');
   const [query, setQuery] = useState("");
 
 let filteredNotes =[];
@@ -33,12 +33,16 @@ if(query !== ""){
     }
   }
   const editNote = (note) => {
-  setSelectedNote(note)
+  setSelectedNote(note);
   setUserInput(note.text)
   }
-  const saveEditedNote = (id) => {
+  const saveEditedNote = (selectedNote) => {
+   
     setNotes([...notes.map((note) => 
-    (id === note.id)?{...note, text}:note)])
+      
+    (note.id === selectedNote.id)?{...note, text:userInput}
+    :note)])
+
   }
   const deleteNote = (id) => {
     setNotes([...notes.filter((note) => (id !== note.id))])
@@ -68,6 +72,9 @@ if(query !== ""){
     addNote={addNote}
     saveEditedNote={saveEditedNote}
     selectedNote={selectedNote}
+    setSelectedNote={setSelectedNote}
+
+    
      
      /></div>
   
