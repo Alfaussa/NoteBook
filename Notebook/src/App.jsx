@@ -1,11 +1,30 @@
 import { useState } from 'react'
 import { nanoid } from 'nanoid'
+import styled from 'styled-components'
 import  TextareaForm  from './components/TextareaForm'
 import NoteItem from './components/NoteItem'
 import SearchBar from './components/SearchBar'
-
 import './App.css'
 
+const Root = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  background-color: rgb(122, 122, 233);
+
+`
+const Notes = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin:10px;
+`
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  
+`
 function App() {
   
   const [notes, setNotes] = useState([]);
@@ -49,14 +68,15 @@ if(query !== ""){
   }
 
   return (
-    <>
+    <Root>
+    <Container>
     <SearchBar
     notes={notes}
     query={query}
     setQuery={setQuery}
  />
   
-    
+    <Notes>
     {filteredNotes.map((note)=>
     <NoteItem
     note={note}
@@ -64,19 +84,18 @@ if(query !== ""){
     text={note.text}
     editNote={editNote}
     deleteNote={deleteNote}/>)   }
-    
-    
-<div className='items-container'><TextareaForm
+    </Notes>
+     </Container>
+
+  <TextareaForm
     userInput={userInput}
     setUserInput={setUserInput}
     addNote={addNote}
     saveEditedNote={saveEditedNote}
     selectedNote={selectedNote}
     setSelectedNote={setSelectedNote}
+/>
 
-    
-     
-     /></div>
   
   
    
@@ -86,7 +105,7 @@ if(query !== ""){
      
      
      
-    </>
+    </Root>
   )
 }
 

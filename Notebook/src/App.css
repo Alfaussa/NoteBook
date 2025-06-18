@@ -1,20 +1,6 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  display: flex;
+body {
+display:flex;
+justify-content: center;
+background-color: rgb(122, 122, 233);
 }
 
-.note-item{
-display: flex;
-width: 50%;
-margin-right: 30px;   
-}
-.note-form{
-width: 50%
-}
-.items-container{
-  display: flex;
-  flex-direction: column;
-}
