@@ -5,16 +5,16 @@ import styled from 'styled-components'
 
 const Search = styled.div`
   margin: 0 5px;
-  min-width:150px;
+min-width:150px;
 
   
 `
-const Input = styled.div`
-  height: 20px;
-  border: 1px solid;
-   &:hover {
-    background-color: lightblue;
-  }
+const Input = styled.input`
+  height: 25px;
+  width:100%;
+  border: 4px solid;
+  border-radius: 10px;
+  background-color: rgb(122, 122, 233);
 `
 const SearchBar = ({query, setQuery}) => {
 

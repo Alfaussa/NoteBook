@@ -7,7 +7,8 @@ import SearchBar from './components/SearchBar'
 import './App.css'
 
 const Root = styled.div`
-  max-width: 1280px;
+color: white;
+width: 100%;
   margin: 0 auto;
   padding: 2rem;
   display: flex;
@@ -15,15 +16,18 @@ const Root = styled.div`
 
 `
 const Notes = styled.div`
+color:grey;
   display: flex;
   flex-direction: column;
   margin:10px;
 `
 const Container = styled.div`
+
   display: flex;
   flex-direction: column;
+  min-width: 50%;
+  margin-right: 20px;
 
-  
 `
 function App() {
   

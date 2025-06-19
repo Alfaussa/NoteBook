@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const Note = styled.div`
   display: flex;
   justify-content: space-between;
-
+  color:white;
 `
 const Delete = styled.div`
 

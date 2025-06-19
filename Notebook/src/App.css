@@ -2,5 +2,22 @@ body {
 display:flex;
 justify-content: center;
 background-color: rgb(122, 122, 233);
+color:grey;
 }
 
+#root{
+  display:flex;
+  min-width: 70%;  
+}
+::-webkit-input-placeholder { /* Chrome, Safari, Opera */
+  color: white;
+}
+:-moz-placeholder { /* Firefox 4-18 */
+  color: white;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: white;
+}
