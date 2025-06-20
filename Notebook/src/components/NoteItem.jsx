@@ -6,6 +6,13 @@ const Note = styled.div`
   display: flex;
   justify-content: space-between;
   color:white;
+
+`
+const TextNote = styled.div`
+  display: inline-block;
+  overflow: hidden;  
+  white-space: nowrap;
+  text-overflow: ellipsis
 `
 const Delete = styled.div`
 
@@ -17,7 +24,7 @@ const NoteItem = ({note, editNote, deleteNote}) => {
 
   return (
     <Note>
-    <div onClick={()=>editNote(note)}>{note.text}</div>
+    <TextNote onClick={()=>editNote(note)}>{note.text}</TextNote>
     <Delete onClick={()=>deleteNote(note.id)}><RiDeleteBin3Line/></Delete>
     </Note>
   )

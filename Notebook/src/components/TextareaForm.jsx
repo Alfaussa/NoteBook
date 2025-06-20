@@ -22,9 +22,6 @@ color:grey;
 
 `
 const TextareaForm = ({addNote, userInput, setUserInput, saveEditedNote, selectedNote}) => {
-
-
-
   const handleChange = (event) => {
     setUserInput(event.target.value)
   }

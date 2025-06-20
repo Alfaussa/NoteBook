@@ -20,6 +20,7 @@ color:grey;
   display: flex;
   flex-direction: column;
   margin:10px;
+
 `
 const Container = styled.div`
 
@@ -27,6 +28,7 @@ const Container = styled.div`
   flex-direction: column;
   min-width: 50%;
   margin-right: 20px;
+  max-width: 300px;
 
 `
 function App() {
@@ -65,7 +67,7 @@ if(query !== ""){
       
     (note.id === selectedNote.id)?{...note, text:userInput}
     :note)])
-
+     setSelectedNote();
   }
   const deleteNote = (id) => {
     setNotes([...notes.filter((note) => (id !== note.id))])
